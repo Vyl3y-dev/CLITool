@@ -1,4 +1,4 @@
-package clitool
+package main
 
 import (
 	"fmt"
@@ -28,4 +28,12 @@ func main() {
 	default:
 		fmt.Println("Unknown command:", command)
 	}
+
+	tasks := LoadTasks()
+
+	if len(os.Args) > 1 && os.Args[1] == "gui" {
+		LaunchUI(tasks)
+		return
+	}
+
 }
